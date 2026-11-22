@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <section class="scene" aria-label="Login">
+    <div class="tile-grid" aria-hidden="true"></div>
+
+    <main class="auth-card">
+      <div class="content">
+        <h2>Sign In</h2>
+        <form class="form" data-notice="Demo only: login will be connected to the backend in Milestone 2.">
+          <div class="inputBox">
+            <input type="email" required autocomplete="email" />
+            <i>Email</i>
+          </div>
+          <div class="inputBox">
+            <input type="password" required autocomplete="current-password" />
+            <i>Password</i>
+          </div>
+          <div class="links">
+            <span>Don't have an account?</span>
+            <a href="register.html">Sign Up</a>
+          </div>
+          <div class="inputBox">
+            <input type="submit" value="Login" />
+          </div>
+        </form>
+        <p class="notice" role="status"></p>
+      </div>
+    </main>
+  </section>
+  <script src="auth.js"></script>
+</body>
+</html>
