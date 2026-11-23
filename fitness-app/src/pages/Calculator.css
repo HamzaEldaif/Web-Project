@@ -1,0 +1,40 @@
+.calculator-page {
+  min-height: 100vh;
+  background-color: wheat;
+  text-align: center;
+  padding: 20px;
+}
+
+.calculator-page h1 {
+  color: darkred;
+}
+
+.calculator-page pre {
+  font-size: 18px;
+}
+
+.calcDiv {
+  border: 10px double black;
+  background-color: cornflowerblue;
+  width: 350px;
+  margin: auto;
+  padding: 20px;
+}
+
+.calcDiv input,
+.calcDiv select {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.calcDiv button {
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+}
+
+.result {
+  color: red;
+  font-size: 22px;
+  font-weight: bold;
+}
