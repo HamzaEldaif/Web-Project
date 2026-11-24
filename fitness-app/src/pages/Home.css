@@ -1,14 +1,5 @@
 /* ===== Home page (all classes start with "home-" to avoid clashing with other pages) ===== */
-.home-page {
-  --neon: #00ff00;
-  --field: #333;
-  min-height: 100vh;
-  padding: 28px 16px 48px;
-  background: #111;
-  color: #fff;
-  text-align: left;
-  font-family: "Quicksand", sans-serif;
-}
+.home-page { padding: 28px 16px 48px; }
 .home-inner { max-width: 1100px; margin: 0 auto; }
 
 .home-page h1 { color: var(--neon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }

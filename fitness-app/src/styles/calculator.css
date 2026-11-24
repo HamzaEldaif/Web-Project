@@ -1,0 +1,23 @@
+.calc-card { width: min(440px, calc(100% - 32px)); margin: 24px 0; }
+
+.intro { color: #aaa; font-size: .85em; text-align: center; line-height: 1.5; }
+
+.inputBox select {
+  width: 100%; background: var(--field); border: 1px solid transparent; outline: none;
+  padding: 23px 10px 8px; border-radius: 4px; color: #fff; font-size: 1em;
+}
+.inputBox select:focus { border-color: var(--neon); }
+.inputBox select option { background: #333; color: #fff; }
+.inputBox select ~ i { transform: translateY(-9px); font-size: .75em; color: #fff; }
+
+.buttons { display: flex; gap: 12px; }
+.buttons .inputBox { flex: 1; }
+
+.inputBox input[type="reset"] {
+  width: 100%; padding: 10px; border: 1px solid var(--neon); border-radius: 4px;
+  background: transparent; color: var(--neon); font-weight: 700; font-size: 1.15em;
+  letter-spacing: .05em; cursor: pointer;
+}
+.inputBox input[type="reset"]:hover { box-shadow: 0 0 18px rgba(0,255,0,.35); }
+
+.result { font-size: 1.1em; font-weight: 700; }

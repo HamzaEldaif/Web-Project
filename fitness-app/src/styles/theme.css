@@ -1,3 +1,5 @@
+/* ===== Shared neon theme (global): reset, colors, cards, generic page ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,18 +7,19 @@
   font-family: "Quicksand", sans-serif;
 }
 
-:root { --neon: #00ff00; --field: #333; }
+:root { --neon: #00ff00; --field: #333; --header-h: 64px; }
 body { min-height: 100vh; background: #000; color: #fff; }
 
+/* ----- Scene (animated background) ----- */
 .scene {
-  position: relative; width: 100%; min-height: 100vh; display: flex;
+  position: relative; width: 100%; min-height: calc(100vh - var(--header-h)); display: flex;
   justify-content: center; align-items: center; overflow: hidden; isolation: isolate;
   background: #000;
 }
 .scene::before {
   content: ""; position: absolute; inset: -100% 0; z-index: -1;
   background: linear-gradient(transparent, var(--neon), transparent);
-  opacity: .75; animation: beam 7s linear infinite;
+  opacity: .75; animation: beam 3s linear infinite;
 }
 @keyframes beam { to { transform: translateY(100%); } }
 
@@ -27,37 +30,47 @@ body { min-height: 100vh; background: #000; color: #fff; }
               repeating-linear-gradient(0deg, #181818 0 56px, transparent 56px 58px);
 }
 
+/* ----- Card ----- */
 .auth-card {
   position: relative; width: min(400px, calc(100% - 32px)); min-height: 420px;
   padding: 38px; border-radius: 5px; background: rgba(34,34,34,.97);
   box-shadow: 0 15px 35px rgba(0,0,0,.9); border: 1px solid #333;
   animation: appear .35s ease;
 }
-@keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 .content { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 30px; }
-.content h2 { color: var(--neon); font-size: 2em; text-transform: uppercase; letter-spacing: 1px; }
+.content h2 { color: var(--neon); font-size: 2em; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
 .form { width: 100%; display: flex; flex-direction: column; gap: 22px; }
 .inputBox { position: relative; width: 100%; }
 
-.inputBox input:not([type="submit"]) {
+/* ----- Inputs (all except submit/reset buttons) ----- */
+.inputBox input:not([type="submit"]):not([type="reset"]) {
   width: 100%; background: var(--field); border: 1px solid transparent; outline: none;
   padding: 23px 10px 8px; border-radius: 4px; color: #fff; font-size: 1em;
 }
-.inputBox input:focus { border-color: var(--neon); }
+.inputBox input:not([type="submit"]):not([type="reset"]):focus { border-color: var(--neon); }
+
+/* ----- Floating label ----- */
 .inputBox i {
   position: absolute; left: 10px; top: 13px; color: #aaa; font-style: normal;
   pointer-events: none; transition: .25s;
 }
-.inputBox input:focus ~ i, .inputBox input:valid ~ i {
+.inputBox input:focus ~ i,
+.inputBox input:not(:placeholder-shown) ~ i {
   transform: translateY(-9px); font-size: .75em; color: #fff;
 }
 
+/* ----- Links row ----- */
 .links { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: .82em; }
 .links a { color: var(--neon); text-decoration: none; font-weight: 700; }
 .links a:hover { text-decoration: underline; }
 .links span { color: #aaa; }
 
+/* ----- Submit button ----- */
 .inputBox input[type="submit"] {
   width: 100%; padding: 10px; border: 0; border-radius: 4px; background: var(--neon);
   color: #000; font-weight: 700; font-size: 1.15em; letter-spacing: .05em; cursor: pointer;
@@ -65,8 +78,19 @@ body { min-height: 100vh; background: #000; color: #fff; }
 .inputBox input[type="submit"]:hover { box-shadow: 0 0 18px rgba(0,255,0,.55); }
 .inputBox input[type="submit"]:active { opacity: .7; }
 
+/* ----- Status message ----- */
 .notice { min-height: 18px; color: var(--neon); text-align: center; font-size: .82em; }
 
+/* ----- Generic page (About, ...) ----- */
+.page { max-width: 1100px; margin: 0 auto; padding: 28px 16px 48px; }
+.page h1 { color: var(--neon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.page h2 { margin: 24px 0 10px; }
+.page p, .page li { line-height: 1.6; }
+.page ul { padding-left: 20px; }
+.page .team-list { list-style: none; padding-left: 0; display: grid; gap: 10px; }
+.page .team-list li { background: #222; border: 1px solid #333; border-radius: 6px; padding: 12px 16px; }
+
+/* ----- Responsive + accessibility ----- */
 @media (max-width: 480px) {
   .auth-card { padding: 30px 24px; }
   .content h2 { font-size: 1.7em; }
