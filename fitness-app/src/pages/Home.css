@@ -1,4 +1,4 @@
-/* ===== Home page (all classes start with "home-" to avoid clashing with other pages) ===== */
+/* ===== Home page (classes start with "home-" to avoid clashing with other pages) ===== */
 .home-page { padding: 28px 16px 48px; }
 .home-inner { max-width: 1100px; margin: 0 auto; }
 
